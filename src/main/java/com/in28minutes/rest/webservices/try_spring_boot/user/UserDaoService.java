@@ -24,7 +24,7 @@ public class UserDaoService {
 
     public User findOne(int id) {
         Predicate<? super User> predicate = user -> user.getId().equals(id);
-        return users.stream().filter(predicate).findFirst().get();
+        return users.stream().filter(predicate).findFirst().orElseThrow(() -> new UserNotFoundException("id:"+id));
     }
 
     public User save(User user) {
@@ -32,6 +32,4 @@ public class UserDaoService {
         users.add(user);
         return user;
     }
-
-    //findOne(id)
 }

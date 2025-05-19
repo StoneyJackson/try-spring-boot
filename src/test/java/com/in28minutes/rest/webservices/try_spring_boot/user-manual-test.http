@@ -21,6 +21,11 @@ POST http://localhost:8080/users  HTTP/1.1
         "birthDate" : "1975-12-12"
    }
 
-### Status 404
+### Bad endpoint -> Status 404
 
 POST http://localhost:8080/blah  HTTP/1.1
+
+
+### Non-existing id -> Status 404
+
+POST http://localhost:8080/users/404  HTTP/1.1
