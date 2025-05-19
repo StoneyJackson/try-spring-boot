@@ -34,3 +34,24 @@ POST http://localhost:8080/blah  HTTP/1.1
 ### Non-existing id -> Status 404
 
 POST http://localhost:8080/users/404  HTTP/1.1
+
+
+### Bad request, name length must be >= 2 -> Status 400
+
+POST http://localhost:8080/users  HTTP/1.1
+   content-type: application/json
+
+   {
+        "name" : "T",
+        "birthDate" : "1975-12-12"
+   }
+
+### Bad request, birthDate must be in past -> Status 400
+
+POST http://localhost:8080/users  HTTP/1.1
+   content-type: application/json
+
+   {
+        "name" : "B",
+        "birthDate" : "9975-12-12"
+   }
