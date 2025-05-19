@@ -10,6 +10,11 @@ GET http://localhost:8080/users  HTTP/1.1
 GET http://localhost:8080/users/1  HTTP/1.1
     content-type: application/json
 
+### Delete user
+# Expected status: 200
+DELETE http://localhost:8080/users/2  HTTP/1.1
+    content-type: application/json
+
 
 ### Create user
 # Expected status: 201
